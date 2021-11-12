@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import DataService from "src/services/data.other.service";
 
 @Component({
     selector: "employee-list",
@@ -12,8 +13,30 @@ export default class EmployeeListComponent {
     headerId: string = "dummy-header";
     headerClass: string = "dummy-header-class";
     applyClass: boolean = false;
+    dateTime: any = new Date();
 
-    constructor() {
+    filterText = "TechnoFunnel";
+
+    captureInput(event: any) {
+        this.filterText = event.target.value;
+    }
+
+    captureInputModel(value : any) {
+        this.filterText = value;
+    }
+
+    employeeList: any = [];
+
+    deleteEmployee(name: string, id: string) {
+        alert(`Employee with name ${name} need to be deleted...`);
+        alert(`Employee Id is ${id}`);
+
+        this.employeeList = this.employeeList.filter((employee) => {
+            return employee.id != id;
+        })
+    }
+
+    constructor(private _data: DataService) {
         setInterval(() => {
             this.counter = this.counter + 1;
         }, 1000)
@@ -22,6 +45,6 @@ export default class EmployeeListComponent {
             this.headerId = "dummy-header-mayank";
             this.headerClass = "dummy-header-class-maynk";
             this.applyClass = true;
-        }, 5000)
+        }, 5000);
     }
 }

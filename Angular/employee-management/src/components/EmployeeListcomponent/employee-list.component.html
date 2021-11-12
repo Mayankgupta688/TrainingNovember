@@ -1,7 +1,19 @@
-<div>
-    <b [class.someClass]="applyClass">The Employee List is given Below for TechnoFunnel:</b>
-    <p [class]="applyClass ? 'X' : 'Y'">The first Emplkoyee in the company is {{ userName }}</p>
-    <p>The Sum of 1 and 5 is {{ 1 + 5 }}</p>
-    <h1 [style.color]="headerColor" class={{headerClass}} name="Header" [id]="headerId">The Counter value is {{ counter }}</h1>
-    <h2>Concept of Interpolation vs Property Binding</h2>
-</div>
+<ng-container>
+    <h1>This is the List of Employees in the Application:</h1><br/>
+
+    Filter Employee List: <input type="text" [value]="filterText" (keyup)="captureInput($event)" /><br/><br/>
+
+    Date is {{dateTime | convertTimeToRequiredValue : "minutes"}}
+    Date is {{dateTime | convertTimeToRequiredValue : "second"}} <br/><br/>
+
+    <ng-container *ngFor="let employee of employeeList">
+        <div class="card" style="width: 18rem; display: inline-block; margin: 10px;" *ngIf="+(employee.id) != 100">
+            <img src="https://st.depositphotos.com/1594308/4626/i/950/depositphotos_46262829-stock-photo-happy-employee.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{employee.name | convertToSpaces : " " : ","}} : {{employee.currency | currency : "CAD" : false}}</h5>
+                <p class="card-text">{{employee.name | convertToSpaces : "Streich" : ""}} {{employee.currency}} Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <input type="button" value="Delete" class="btn btn-primary" (click)="deleteEmployee(employee.name, employee.id)" />
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
