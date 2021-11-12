@@ -27,6 +27,6 @@ import ChildComponent from "./components/ParenChildRelationship/childComponent/c
         ChildComponent
     ],
     imports: [ BrowserModule, FormsModule, HttpClientModule ],
-    bootstrap: [ ParentComponent, ChildComponent ]
+    bootstrap: [ ParentComponent ]
 })
 export default class EmployeeManagementModule { }

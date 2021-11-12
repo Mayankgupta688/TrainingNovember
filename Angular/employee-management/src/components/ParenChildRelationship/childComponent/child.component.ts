@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
     selector: "child-component",
@@ -8,9 +8,13 @@ export default class ChildComponent  {
     @Input() public userName;
     @Input() public userAge;
 
+    @Output() changeEvent: EventEmitter<any> = new EventEmitter();
+
     ngOnInit() {
-        debugger;
-        console.dir(this.userName)
-        debugger;
+        console.dir(this.userName);
+    }
+
+    updateNameEvent() {
+        this.changeEvent.emit("Update Name")
     }
 } 

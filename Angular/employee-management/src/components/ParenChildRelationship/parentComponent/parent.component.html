@@ -1,7 +1,8 @@
 <div>
-    <h1>This Is Parent Component</h1>
+    <h1>This Is Parent Component {{userDetails.userName}}</h1>
     <child-component 
         [userName]="userDetails.userName"
-        [userAge]="userDetails.userAge">
+        [userAge]="userDetails.userAge"
+        (changeEvent)="updateName($event)">
     </child-component>
 </div>
