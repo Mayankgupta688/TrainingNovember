@@ -1,8 +1,16 @@
 <div>
-    <h1>This Is Parent Component {{userDetails.userName}}</h1>
+    <h1 applyStyle>This Is Parent Component {{userDetails.userName}}</h1>
+    <h2 applyStyle>Applying Dynamic Styling</h2>
     <child-component 
         [userName]="userDetails.userName"
         [userAge]="userDetails.userAge"
         (changeEvent)="updateName($event)">
     </child-component>
+
+    <get-time></get-time>
+
+    <div *delayRendering>
+        <h1>This is Relayed Component Structure</h1>
+        <h2>Welcome to Technofunnel</h2>
+    </div>
 </div>

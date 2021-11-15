@@ -12,6 +12,8 @@ import ComponentOne from "./components/InterCoponentCommunication/component-one/
 import ComponentTwo from "./components/InterCoponentCommunication/component-two/component-two.component";
 import ParentComponent from "./components/ParenChildRelationship/parentComponent/parent.component";
 import ChildComponent from "./components/ParenChildRelationship/childComponent/child.component";
+import SharedModule from "./shared.module";
+import { LifeCycleEvents, LifeCycleEventsChild } from "./components/LifeCycleHooks/life-cycle.component";
 
 @NgModule({
     declarations: [ 
@@ -24,9 +26,11 @@ import ChildComponent from "./components/ParenChildRelationship/childComponent/c
         ComponentOne,
         ComponentTwo,
         ParentComponent,
-        ChildComponent
+        ChildComponent,
+        LifeCycleEvents,
+        LifeCycleEventsChild
     ],
-    imports: [ BrowserModule, FormsModule, HttpClientModule ],
-    bootstrap: [ ParentComponent ]
+    imports: [ BrowserModule, FormsModule, HttpClientModule, SharedModule ],
+    bootstrap: [ LifeCycleEvents ]
 })
 export default class EmployeeManagementModule { }

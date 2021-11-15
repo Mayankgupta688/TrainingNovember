@@ -1,0 +1,5 @@
+<div *ngFor="let employee of employeeList">
+    <h1>Employee Name is {{employee.name}}</h1>
+    <input type="button" (click)="redirectToDetails(employee.id)" value="Details" /><hr/>
+    <br/>
+</div>
